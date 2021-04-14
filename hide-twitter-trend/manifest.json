@@ -1,0 +1,17 @@
+{
+    "name": "Hide Twitter Trend",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "description": "Twitterのトレンドを非表示にします",
+    "permissions": ["scripting"],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://twitter.com/*"],
+            "js": ["hide-trend.js"],
+            "run_at": "document_end"
+        }
+    ]
+}
