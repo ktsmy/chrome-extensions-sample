@@ -9,10 +9,8 @@ function hideTrend() {
       console.log("hide trend")
       trend.setAttribute("style", "display: none")
       clearInterval(timer)
-    }
-    if (count > MAX_COUNT) {
+    } else if (count > MAX_COUNT) {
       console.log("count over")
-      count = 0
       clearInterval(timer)
     }
   }, 100)
