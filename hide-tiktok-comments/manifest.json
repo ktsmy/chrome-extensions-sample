@@ -1,0 +1,17 @@
+{
+    "name": "Hide Tiktok Comments",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "description": "Tiktokのコメントを非表示にします",
+    "permissions": ["scripting"],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.tiktok.com/*"],
+            "js": ["hide-comments.js"],
+            "run_at": "document_end"
+        }
+    ]
+}
