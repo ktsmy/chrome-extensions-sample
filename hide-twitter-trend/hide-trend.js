@@ -1,6 +1,5 @@
-const MAX_COUNT = 50
-
 function hideTrend() {
+  const MAX_COUNT = 50
   let count = 0
   const timer = setInterval(() => {
     console.log(`${++count}`)
@@ -16,5 +15,12 @@ function hideTrend() {
   }, 100)
 }
 
-window.addEventListener("load", hideTrend, false);
-window.addEventListener("click", hideTrend, false);
+let href = ''
+const observer = new MutationObserver(_ => {
+  if (href != location.href) {
+    hideTrend()
+  }
+  href = location.href
+});
+observer.observe(document, {childList: true, subtree: true})
+window.addEventListener("load", hideTrend, false)
