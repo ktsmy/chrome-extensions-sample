@@ -3,10 +3,10 @@ function hideTikTokComments() {
   let count = 0
   const timer = setInterval(() => {
     console.log(`${++count}`)
-    const comment = document.querySelector("div[class*='DivCommentListContainer']")
-    if (comment) {
+    comments = document.querySelectorAll("div[class*='DivCommentItemContainer']")
+    if (comments.length > 0) {
       console.log("hide comment")
-      comment.setAttribute("style", "display: none")
+      comments.forEach(c => c.setAttribute("style", "display: none"))
       clearInterval(timer)
     } else if (count > MAX_COUNT) {
       console.log("count over")
