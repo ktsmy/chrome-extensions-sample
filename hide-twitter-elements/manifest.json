@@ -1,8 +1,8 @@
 {
-    "name": "Hide Twitter Trend",
+    "name": "Hide Twitter Elements",
     "version": "0.0.1",
     "manifest_version": 3,
-    "description": "Twitterのトレンドを非表示にします",
+    "description": "Twitterの不要な要素を非表示にします",
     "permissions": ["scripting"],
     "action": {
         "default_popup": "popup.html"
@@ -13,7 +13,7 @@
                 "https://twitter.com/*",
                 "https://x.com/*"
             ],
-            "js": ["hide-trend.js"],
+            "js": ["hide.js"],
             "run_at": "document_end"
         }
     ]
