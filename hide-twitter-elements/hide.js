@@ -1,11 +1,9 @@
-function hideElements(selector) {
+function hideElements(elements) {
   const MAX_COUNT = 50
   let count = 0
   const timer = setInterval(() => {
     console.log(`${++count}`)
-    const elements = document.querySelectorAll(selector)
     if (elements.length > 0) {
-      console.log(`hide ${selector}`)
       elements.forEach(e => e.setAttribute("style", "display: none"))
       clearInterval(timer)
     } else if (count > MAX_COUNT) {
@@ -17,10 +15,13 @@ function hideElements(selector) {
 
 function hide() {
   // Trend
-  hideElements("div[aria-label='タイムライン: トレンド']")
-  hideElements("div[aria-label='タイムライン: 速報']")
+  hideElements(document.querySelectorAll("div[aria-label='タイムライン: トレンド']"))
+  hideElements(document.querySelectorAll("div[aria-label='タイムライン: 速報']"))
   // Ad
-  hideElements("div[data-testid='placementTracking']")
+  hideElements(
+    Array.from(document.querySelectorAll("div[data-testid='placementTracking']"))
+      .filter(e => e.children instanceof(HTMLCollection) && e.children.item(0).getAttribute("data-testid") !== "videoPlayer")
+  )
 }
 
 const observer = new MutationObserver(hide);
