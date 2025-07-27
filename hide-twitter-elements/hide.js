@@ -18,6 +18,7 @@ function hideElements(selector) {
 function hide() {
   // Trend
   hideElements("div[aria-label='タイムライン: トレンド']")
+  hideElements("div[aria-label='タイムライン: 速報']")
   // Ad
   hideElements("div[data-testid='placementTracking']")
 }
